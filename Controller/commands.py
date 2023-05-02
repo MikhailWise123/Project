@@ -13,7 +13,7 @@ def add_note():
             Models.Note.Note.set_id(note)
     array_notes.append(note)
     wF.write_file(array_notes, 'a')
-    print("Заметка добавлена в журнал!")
+    print("Заметка добавлена в журнал")
 
 
 def show(txt):
@@ -21,7 +21,7 @@ def show(txt):
 
     if array_notes:
         if txt == "all":
-            print("ЖУРНАЛ ЗАМЕТОК:")
+            print("Журнал Заметок:")
             for i in array_notes:
                 print(Models.Note.Note.map_note(i))
 
@@ -35,10 +35,10 @@ def show(txt):
                     print(Models.Note.Note.map_note(i))
                     flag = False
             if flag:
-                print("Нет такого ID")
+                print("id не существует")
 
         elif txt == "date":
-            date = input("Введите дату в формате: dd.mm.yyyy: ")
+            date = input("Введите дату в следующем формате: 19.04.2007: ")
             flag = True
             for i in array_notes:
                 date_note = str(Models.Note.Note.get_date(i))
@@ -63,13 +63,13 @@ def del_notes():
 
     if flag:
         wF.write_file(array_notes, 'a')
-        print("Заметка с id: ", id, " успешно удалена!")
+        print("Заметка с id: ", id, " удалена!")
     else:
-        print("нет такого id")
+        print("Нет такого id")
 
 
 def change_note():
-    id = input("Введите ID изменяемой заметки: ")
+    id = input("Введите id изменяемой заметки: ")
     array_notes = lF.read_file()
     flag = True
     array_notes_new = []
